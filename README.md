@@ -21,7 +21,7 @@ PowerShell 5.1+
 ## Quick Start
 
 ```powershell
-irm https://raw.githubusercontent.com/F3aarLeSS/BraveBackupManager/refs/heads/main/BraveBackupManager.ps1 | iex
+irm https://f3aarless.github.io/BraveBackupManager/install.ps1 | iex
 ```
 
 ## Screenshots
