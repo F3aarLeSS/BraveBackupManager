@@ -13,11 +13,9 @@ $ErrorActionPreference = "Stop"
 $Script:AppName     = "Brave Backup Manager"
 $Script:Version     = "1.0.0"
 
-if ($PSCommandPath) {
-    $Script:Root = Split-Path -Parent $PSCommandPath
-} else {
-    $Script:Root = $PWD.Path
-}
+# Define a static, predictable path on the user's Desktop
+$DesktopPath        = [Environment]::GetFolderPath('Desktop')
+$Script:Root        = Join-Path $DesktopPath $Script:AppName
 
 $Script:BackupRoot  = Join-Path $Script:Root "Backup"
 $Script:LogRoot     = Join-Path $Script:Root "Logs"
