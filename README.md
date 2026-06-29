@@ -26,7 +26,8 @@ irm https://raw.githubusercontent.com/F3aarLeSS/BraveBackupManager/refs/heads/ma
 
 ## Screenshots
 
-Coming Soon...
+<img width="1110" height="608" alt="image" src="https://github.com/user-attachments/assets/59650064-fceb-4254-8861-3d652860ee4d" />
+
 
 ## License
 
