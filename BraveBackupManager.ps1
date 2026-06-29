@@ -154,7 +154,6 @@ function Show-MainMenu {
             }
 
             "3" {
-                # FLaw 1 Corrected: Force array evaluation to prevent Strict Mode failure
                 $Sessions = @(Get-BackupSessions)
                 
                 if ($Sessions.Count -eq 0) {
@@ -168,9 +167,8 @@ function Show-MainMenu {
 
                 Get-BraveInstallations
 
-                $TargetBrowser = Select-TargetBrowser `
-                    -Browsers $Script:Browsers `
-                    -BackupEdition $SelectedSession.Browser
+                # Hardened command syntax to prevent trailing space corruption
+                $TargetBrowser = Select-TargetBrowser -Browsers $Script:Browsers -BackupEdition $SelectedSession.Browser
 
                 if ($null -eq $TargetBrowser) {
                     Write-Host "`nTarget browser ($($SelectedSession.Browser)) is not installed on this system." -ForegroundColor Red
@@ -296,7 +294,6 @@ function Select-BackupSession {
     }
 }
 
-# FLaw 2 Corrected: Added missing Select-TargetBrowser function
 function Select-TargetBrowser {
     
     param(
@@ -998,3 +995,5 @@ function Show-BackupSummary {
 Initialize-App
 Write-Log "Application started."
 Show-MainMenu
+
+# --- END OF SCRIPT ---
