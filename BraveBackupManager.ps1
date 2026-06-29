@@ -12,7 +12,13 @@ $ErrorActionPreference = "Stop"
 
 $Script:AppName     = "Brave Backup Manager"
 $Script:Version     = "1.0.0"
-$Script:Root        = Split-Path -Parent $PSCommandPath
+
+if ($PSCommandPath) {
+    $Script:Root = Split-Path -Parent $PSCommandPath
+} else {
+    $Script:Root = $PWD.Path
+}
+
 $Script:BackupRoot  = Join-Path $Script:Root "Backup"
 $Script:LogRoot     = Join-Path $Script:Root "Logs"
 $Script:LogFile     = Join-Path $Script:LogRoot ("Log_{0}.txt" -f (Get-Date -Format "yyyy-MM-dd_HH-mm-ss"))
